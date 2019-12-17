@@ -4,9 +4,10 @@ $.DataTable = require('datatables.net')
 
 export default class table extends Component {
 
-    componentDidMount() {
-       // console.log(this.el)
-        this.$el = $(this.el) // invoking Datatable library
+    componentDidMount(props) {
+        console.log(this.el)
+        console.log(this.props)
+        this.$el = $(this.el)  // invoking Datatable library
         this.$el.DataTable(
             {
                 data: this.props.data,
@@ -28,9 +29,13 @@ export default class table extends Component {
 
     render() {
         return (
-            <div>
-                <table id="example" className="table table-bordered table-hover" width="100%" ref = {el=>this.el = el}>
-                </table>
+            <div className="card-body">
+                <div className="row">
+                    <div className="col-md-12">
+                        <table id="example1" className="table table-striped table-bordered table-hover" ref = {el=>this.el = el}>
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }
